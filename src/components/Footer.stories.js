@@ -1,8 +1,8 @@
-import Header from "./Header";
+import Footer from "./Footer";
 
 export default {
-  component: Header,
-  title: "Header",
+  component: Footer,
+  title: "Footer",
   tags: ["autodocs"],
 };
 

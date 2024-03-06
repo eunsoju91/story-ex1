@@ -1,69 +1,126 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { Header } from './Header';
-import './page.css';
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import PostList from '../components/PostList';
+
+// Images
+import post1 from '../assets/images/post1.png';
+import post2 from '../assets/images/post2.png';
+import post3 from '../assets/images/post3.png';
+import post4 from '../assets/images/post4.png';
+import post5 from '../assets/images/post5.gif';
+import post6 from '../assets/images/post6.png';
+import post7 from '../assets/images/post7.gif';
+import post8 from '../assets/images/post8.png';
+import post9 from '../assets/images/post9.png';
+import post10 from '../assets/images/post10.png';
+import post11 from '../assets/images/post11.png';
+import post12 from '../assets/images/post12.png';
 
 export const Page = () => {
-  const [user, setUser] = React.useState();
+  useEffect(() => {
+    var postItems = document.querySelectorAll('.post-list > .post-item');
+
+    postItems.forEach(function(postItem, i) {
+      postItem.style.setProperty("--char-index", i);
+    });
+  }, []);
 
   return (
-    <article>
-      <Header
-        user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
-      />
-
-      <section className="storybook-page">
-        <h2>Pages in Storybook</h2>
-        <p>
-          We recommend building UIs with a{' '}
-          <a href="https://componentdriven.org" target="_blank" rel="noopener noreferrer">
-            <strong>component-driven</strong>
-          </a>{' '}
-          process starting with atomic components and ending with pages.
-        </p>
-        <p>
-          Render pages with mock data. This makes it easy to build and review page states without
-          needing to navigate to them in your app. Here are some handy patterns for managing page
-          data in Storybook:
-        </p>
-        <ul>
-          <li>
-            Use a higher-level connected component. Storybook helps you compose such data from the
-            "args" of child component stories
-          </li>
-          <li>
-            Assemble data in the page component from your services. You can mock these services out
-            using Storybook.
-          </li>
-        </ul>
-        <p>
-          Get a guided tutorial on component-driven development at{' '}
-          <a href="https://storybook.js.org/tutorials/" target="_blank" rel="noopener noreferrer">
-            Storybook tutorials
-          </a>
-          . Read more in the{' '}
-          <a href="https://storybook.js.org/docs" target="_blank" rel="noopener noreferrer">
-            docs
-          </a>
-          .
-        </p>
-        <div className="tip-wrapper">
-          <span className="tip">Tip</span> Adjust the width of the canvas with the{' '}
-          <svg width="10" height="10" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fillRule="evenodd">
-              <path
-                d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-                id="a"
-                fill="#999"
-              />
-            </g>
-          </svg>
-          Viewports addon in the toolbar
-        </div>
-      </section>
-    </article>
+    <div className="page">
+      <Header />
+      <div className="page-body">
+        <PostList
+          post={[
+            {
+              alt: 'post1',
+              body: 'Est placerat in egestas erat imperdietNisi scelerisque eu ultrices vitae auctor eu augue ut lectus',
+              head: 'Est placerat in egestas erat imperdiet',
+              id: 1,
+              imgSrc: post1
+            },
+            {
+              alt: 'post2',
+              body: 'Nisi scelerisque euquisque sagittis purus. Pulvinar elementum integer enim neque volutpat ac. We',
+              head: 'Nisi scelerisque eu',
+              id: 2,
+              imgSrc: post2
+            },
+            {
+              alt: 'post3',
+              body: 'platea dictumst quisque sagittis purus. Pulvinar elementum integer Wells Blog Senectus et netus',
+              head: 'Elit at imperdiet',
+              id: 3,
+              imgSrc: post3
+            },
+            {
+              alt: 'post4',
+              body: 'Elit at imperdietplatea dictumst quisque sagittis purus. Pulvinar elementum integer Wells Blog S',
+              head: 'Elit at imperdiet',
+              id: 4,
+              imgSrc: post4
+            },
+            {
+              alt: 'post5',
+              body: 'Est placerat in egestas erat imperdiet. Consequat interdum Wells Blog Senectus et netus et males',
+              head: 'Eros donec',
+              id: 5,
+              imgSrc: post5
+            },
+            {
+              alt: 'post6',
+              body: 'Arcu ac tortor dignissim convallis aenean et tortor at. Pretium viverra suspendisse potenti nullam',
+              head: 'facilisis. Nisi scelerisque eu ultrices vitae',
+              id: 6,
+              imgSrc: post6
+            },
+            {
+              alt: 'post7',
+              body: 'accumsan tortor posuere. Ut sem nulla pharetra diam. Fames ac turpis egestas maecenas. Bibendum ne',
+              head: 'nullam ac tortor',
+              id: 7,
+              imgSrc: post7
+            },
+            {
+              alt: 'post8',
+              body: 'Etiam erat velit scelerisque in dictum non consectetur a erat. Enim nulla aliquet porttitor lacus',
+              head: 'est ultricies. Arcu ac tortor dignissim',
+              id: 8,
+              imgSrc: post8
+            },
+            {
+              alt: 'post9',
+              body: 'Elit at imperdietplatea dictumst quisque sagittis purus. Pulvinar elementum integer Wells Blog S',
+              head: 'Elit at imperdiet',
+              id: 9,
+              imgSrc: post9
+            },
+            {
+              alt: 'post10',
+              body: 'platea dictumst quisque sagittis purus. Pulvinar elementum integer Wells Blog Senectus et netus',
+              head: 'Elit at imperdiet',
+              id: 10,
+              imgSrc: post10
+            },
+            {
+              alt: 'post11',
+              body: 'erat imperdiet. Consequat interdum   Wells Blog Senectus et netus et malesuada. Nunc pulvinar sapi',
+              head: 'Est placerat in egestas',
+              id: 11,
+              imgSrc: post11
+            },
+            {
+              alt: 'post12',
+              body: 'risque eu ultrices vitae auctor eu augue ut lectus. Ipsum faucibus vitae aliquet nec ullamcorper s',
+              head: 'tempor id. A lacus',
+              id: 12,
+              imgSrc: post12
+            }
+          ]}
+        />
+      </div>
+      <Footer />
+    </div>
   );
 };
