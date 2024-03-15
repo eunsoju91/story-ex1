@@ -20,7 +20,12 @@ import post12 from '../assets/images/post12.png';
 
 export const Page = () => {
   useEffect(() => {
+    var postList = document.querySelector('.post-list');
     var postItems = document.querySelectorAll('.post-list > .post-item');
+
+    if (postList) {
+      postList.classList.add('on');
+    }
 
     postItems.forEach(function(postItem, i) {
       postItem.style.setProperty("--char-index", i);
